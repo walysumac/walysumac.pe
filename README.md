@@ -1,4 +1,14 @@
+
+
+
+
+
 # WalysumacPe
+
+![image](https://github.com/user-attachments/assets/4266890e-2e3d-45d5-a979-fb91f87159ad)
+
+
+
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.2.
 
