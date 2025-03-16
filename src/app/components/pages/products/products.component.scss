@@ -1,0 +1,16 @@
+:host {
+  display: block;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.group:hover .group-hover\:opacity-100 {
+  opacity: 0.1;
+}
+
+.cursor {
+  font-weight: bold;
+  color: white;
+}

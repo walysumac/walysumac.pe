@@ -1,0 +1,259 @@
+<section class="relative py-12 bg-gray-900 sm:py-16 lg:py-20 xl:py-32">
+    <div class="absolute inset-0">
+        <img class="object-cover bg-white w-full h-full" src="assets/images/background-aboutus.jpg"
+            alt="Walysumac Background" />
+    </div>
+
+    <div class="absolute inset-0 bg-gray-900/50"></div>
+
+    <div class="relative px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+        <div class="max-w-xl mx-auto text-center">
+            <h2 class="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">Acerca de Nosotros</h2>
+            <p class="mt-4 text-base font-normal leading-7 text-white sm:mt-6">
+                En <span class="font-bold text-wsb">Walysumac</span>, nos especializamos en ofrecer
+                soluciones integrales para la industria textil,
+                específicamente en la producción de calcetines. Nuestro objetivo es combinar tecnología de punta con
+                servicios personalizados
+                que permitan a nuestros clientes optimizar sus procesos y maximizar su productividad.
+            </p>
+            <p class="mt-4 text-base font-normal leading-7 text-white sm:mt-6">
+                Desde maquinaria de última generación hasta servicios de mantenimiento, capacitación técnica y soporte
+                postventa,
+                nos esforzamos por garantizar que cada cliente reciba las herramientas y el conocimiento necesarios para
+                alcanzar el éxito
+                en un mercado competitivo. Con <span class="font-bold text-wsb">Walysumac</span>, estás
+                asegurando calidad, innovación y un acompañamiento constante.
+            </p>
+
+            <div class="mt-8 sm:mt-10">
+                <a href="https://wa.link/6eseck" title="Acerca de Walysumac"
+                    class="inline-flex items-center justify-center px-8 py-3 text-base font-bold leading-7 text-gray-900 transition-all duration-200 bg-green-500 border border-transparent rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+                    role="button">
+                    Más información
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<br><br>
+<!-- CARROUSEL -->
+<div #carouselContainer class="relative w-full max-w-3xl mx-auto overflow-hidden">
+    <div #carouselItems class="flex transition-transform duration-700 ease-in-out">
+        <div *ngFor="let video of videos" class="flex-shrink-0 w-full">
+            <video class="w-full h-[500px] object-cover rounded-lg" autoplay loop muted playsinline>
+                <source [src]="video.src" type="video/mp4" />
+                Tu navegador no soporta la reproducción de video.
+            </video>
+        </div>
+    </div>
+
+    <!-- Indicadores -->
+    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3">
+        <button *ngFor="let video of videos; let i = index" (click)="goToSlide(i)"
+            class="w-3 h-3 rounded-full transition-all duration-300" [ngClass]="{
+        'bg-blue-600': currentSlide === i,
+        'bg-gray-400': currentSlide !== i
+      }"></button>
+    </div>
+
+    <!-- Flecha Izquierda -->
+    <button
+        class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-3 rounded-full shadow hover:bg-blue-600 hover:text-white transition"
+        (click)="prevSlide()">
+        <!-- Ícono Flecha Izquierda -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+    </button>
+
+    <!-- Flecha Derecha -->
+    <button
+        class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-3 rounded-full shadow hover:bg-blue-600 hover:text-white transition"
+        (click)="nextSlide()">
+        <!-- Ícono Flecha Derecha -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+    </button>
+
+    <!-- Botón Pausa/Reanudar -->
+    <button
+        class="absolute bottom-4 right-1 transform translate-x-0 bg-white p-2 rounded-full shadow hover:bg-red-600 hover:text-white transition"
+        (click)="togglePause()">
+        <!-- Ícono Pausa -->
+        <svg *ngIf="!isPaused()" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6" />
+        </svg>
+        <!-- Ícono Reproducir -->
+        <svg *ngIf="isPaused()" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-5.197-3.027A1 1 0 008 9.027v5.946a1
+             1 0 001.555.832l5.197-3.027a1 1 0 000-1.664z" />
+        </svg>
+    </button>
+</div>
+
+<section class="py-12 bg-white sm:py-16 lg:py-20">
+    <div class="px-6 mx-auto max-w-7xl sm:px-8 lg:px-10">
+        <div class="grid items-center grid-cols-1 md:grid-cols-2 md:gap-16 gap-y-10">
+            <div class="flex justify-center -mx-4 sm:mx-0">
+                <img class="w-auto h-auto imgfix" src="assets/images/aboutus-machine.png" alt="Misión Walysumac" />
+            </div>
+            <div class="xl:pr-24">
+                <blockquote class="mt-8 md:mt-16">
+                    <h1 class="text-2xl font-bold text-gray-800 sm:text-3xl lg:text-4xl">MISIÓN</h1>
+                    <p
+                        class="mt-4 text-sm sm:text-base lg:text-lg leading-6 sm:leading-7 lg:leading-8 text-gray-700 text-justify">
+                        En nuestra empresa, nos dedicamos a ofrecer soluciones completas para la producción de
+                        calcetines, proporcionando máquinas de alta calidad, soporte técnico especializado y
+                        asesoramiento integral. Ayudamos a nuestros clientes en el desarrollo de nuevos productos y
+                        proyectos de puesta en marcha de líneas de producción, con servicios de montaje, transformación
+                        de maquinaria y formación técnica en áreas como informática y electrónica. A través de un
+                        servicio post-venta excepcional y un suministro garantizado de repuestos, buscamos facilitar la
+                        operatividad de nuestros clientes, asegurando la pronta puesta en marcha de sus fábricas y el
+                        cumplimiento de sus objetivos productivos.
+                    </p>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-12 bg-white sm:py-16 lg:py-20 ">
+    <div class="px-6 mx-auto max-w-7xl sm:px-8 lg:px-10">
+        <div class="grid items-center grid-cols-1 md:grid-cols-2 md:gap-16 gap-y-10">
+            <div class="xl:pr-24 ">
+                <blockquote class="mt-8 md:mt-16">
+                    <h1 class="text-2xl font-bold text-gray-800 sm:text-3xl lg:text-4xl">VISIÓN</h1>
+                    <p
+                        class="mt-4 text-sm sm:text-base lg:text-lg leading-6 sm:leading-7 lg:leading-8 text-gray-700 text-justify">
+                        Ser la empresa de referencia en la industria textil, destacándonos por nuestra capacidad para
+                        ofrecer soluciones integrales que incluyen maquinaria avanzada, asesoramiento técnico y
+                        formación especializada. Nuestra meta es ser el socio estratégico de nuestros clientes en su
+                        crecimiento, brindando apoyo en el desarrollo de nuevos artículos, optimización de procesos de
+                        producción y mantenimiento continuo a través de un servicio post-venta eficiente. Buscamos
+                        liderar el mercado global proporcionando no solo tecnología de punta, sino también el
+                        acompañamiento y la atención personalizada que garantizan el éxito y la competitividad de
+                        nuestros clientes.
+                    </p>
+                </blockquote>
+            </div>
+            <div class="flex justify-center -mx-4 sm:mx-0">
+                <img class="w-auto h-auto imgfix" src="assets/images/aboutus-machine2.png" alt="Visión Walysumac" />
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<section class="py-10 bg-white sm:py-16 lg:py-24">
+    <div class="relative w-full text-center py-12 px-4 sm:py-16 lg:py-20 bg-cover bg-center"
+        style="background-image: url('assets/images/background-aboutus.jpg');">
+        <!-- Overlay oscuro para mejor legibilidad del texto -->
+        <div class="absolute inset-0 bg-gray-900/50"></div>
+
+        <!-- Contenido del div -->
+        <div class="relative max-w-screen-xl mx-auto px-4">
+            <h2 class="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+                Maquinas para el Crecimiento de tu Empresa Textil
+            </h2>
+            <p class="mt-4 text-lg text-gray-200">
+                Soluciones innovadoras y servicios personalizados que transforman tus procesos productivos.
+            </p>
+        </div>
+    </div>
+
+    <div class="px-5 py-8 mt-12 bg-white lg:mt-20 lg:p-16">
+        <div class="grid grid-cols-1 gap-12 lg:gap-16 sm:grid-cols-2">
+            <div class="flex items-start">
+                <svg class="flex-shrink-0 w-16 h-16 text-[#046183]" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+                <div class="ml-5">
+                    <h3 class="text-lg font-semibold text-black">Soporte Técnico Especializado</h3>
+                    <p class="mt-4 text-base text-gray-600">
+                        Brindamos asistencia técnica de alto nivel, asegurando que tus equipos funcionen de manera
+                        óptima para maximizar tu producción.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex items-start">
+                <svg class="flex-shrink-0 w-16 h-16 text-[#046183]" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                        d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+                <div class="ml-5">
+                    <h3 class="text-lg font-semibold text-black">Formación y Capacitación</h3>
+                    <p class="mt-4 text-base text-gray-600">
+                        Capacitamos a tus equipos en el manejo de maquinaria y tecnologías, promoviendo eficiencia
+                        y competencias en tu operación.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex items-start">
+                <svg class="flex-shrink-0 w-16 h-16 text-[#046183]" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                        d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                </svg>
+                <div class="ml-5">
+                    <h3 class="text-lg font-semibold text-black">Suministro de Repuestos</h3>
+                    <p class="mt-4 text-base text-gray-600">
+                        Garantizamos disponibilidad de repuestos originales para asegurar la continuidad de tu
+                        producción sin interrupciones.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex items-start">
+                <svg class="flex-shrink-0 w-16 h-16 text-[#046183]" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                <div class="ml-5">
+                    <h3 class="text-lg font-semibold text-black">Consultoría en Innovación</h3>
+                    <p class="mt-4 text-base text-gray-600">
+                        Ayudamos a implementar nuevas líneas de producción y optimizar procesos con maquinaria de
+                        última generación.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="relative w-full text-center py-6 px-4 sm:py-8 lg:py-10 bg-cover bg-center"
+    style="background-image: url('assets/images/background-aboutus.jpg');">
+    <!-- Overlay oscuro para mejor legibilidad del texto -->
+    <div class="absolute inset-0 bg-gray-900/50"></div>
+
+    <!-- Contenido del div -->
+    <div class="relative max-w-screen-xl mx-auto px-4">
+        <h2 id="typing-effect" class="text-xl font-bold text-white font-pj">
+            <span #typingText></span>
+            <span class="cursor" [class.hidden]="!cursorVisible()">|</span>
+        </h2>
+    </div>
+</div>
+<section class="py-12 bg-white sm:py-16 lg:py-20">
+    <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="xl:flex xl:items-center xl:justify-center">
+            <div
+                class="grid items-center grid-cols-1 mt-10 gap-y-6 xl:mt-0 sm:grid-cols-2 sm:gap-y-8 lg:grid-cols-4 lg:gap-x-8">
+                <img class="object-contain w-auto mx-auto h-40" src="assets/images/stallone.jpg" alt="" />
+                <img class="object-contain w-auto mx-auto h-40" src="assets/images/americano.png" alt="" />
+                <img class="object-contain w-auto mx-auto h-40" src="assets/images/piatelli.jpg" alt="" />
+                <img class="object-contain w-auto mx-auto h-40" src="assets/images/topitop.jpg      " alt="" />
+            </div>
+        </div>
+    </div>
+</section>
+<hr>

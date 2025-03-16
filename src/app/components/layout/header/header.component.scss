@@ -1,0 +1,57 @@
+header {
+  position: relative;
+
+  nav {
+a {
+  text-decoration: none;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  border-radius: 0.375rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+ /* Gradiente base */
+  color: #222222;
+  display: inline-block;
+
+  &:hover {
+    background: linear-gradient(90deg, #d84315, #f9a825); /* Invertir el gradiente en hover */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Añadir un efecto de sombra */
+    color: #fff; /* Asegurar texto blanco */
+    transform: scale(1.05); /* Ligeramente más grande */
+  }
+
+  &.active {
+    background: linear-gradient(90deg, #f9a825, #d84315); /* Gradiente naranja más intenso */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Más sombra en estado activo */
+    color: #fff; /* Asegurar texto blanco */
+    transform: scale(1.08); /* Ligeramente más grande */
+    animation: identifier 0.5s ease; /* Añadir una animación */
+  }
+ 
+@keyframes move
+ {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+}
+
+
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .lg\\:hidden {
+      display: flex;
+    }
+
+    .lg\\:flex {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+.imgfix{
+    width: 80%;
+    height: 80%;
+  
+    transition: all 0.3s ease;
+    cursor: pointer;
+    &:hover{
+        transform: scale(1.1);
+    }
+
+
+.cursor {
+  display: inline-block;
+  width: 1ch; /* Fija el ancho del cursor para que no desplace el texto */
+  border-right: 2px solid #046183; /* Color del cursor */
+  animation: blink-caret 1s steps(2, start) infinite; /* Animación de parpadeo */
+}
+
+@keyframes blink-caret {
+  0%, 100% {
+    opacity: 1; /* Cursor visible */
+  }
+  50% {
+    opacity: 0; /* Cursor invisible */
+  }
+}
+}.snap-container {
+  scroll-behavior: smooth; // Para que el scroll sea suave
+}
+
+.cursor {
+  font-weight: bold;
+  color: white;
+}
+
+:host {
+  display: block;
+}
+.cursor {
+  font-weight: bold;
+  color: white;
+}
+
+:host {
+  display: block;
+}

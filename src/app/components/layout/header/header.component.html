@@ -1,0 +1,78 @@
+<header class="py-4 bg-white">
+    <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex-shrink-0">
+                <a routerLink="/" title="Walysumac" class="flex">
+                    <img class="w-auto h-8 lg:h-10" src="assets/images/logo-walysumac-header.png" alt="Logo" />
+                </a>
+            </div>
+
+            <!-- Botón hamburguesa para pantallas pequeñas -->
+            <div class="flex lg:hidden">
+                <button type="button" class="text-wsb" (click)="toggleMenu()" [attr.aria-expanded]="isMenuOpen()">
+                    <ng-container *ngIf="!isMenuOpen(); else closeIcon">
+                        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </ng-container>
+                    <ng-template #closeIcon>
+                        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </ng-template>
+                </button>
+            </div>
+
+            <!-- Menú horizontal para pantallas grandes -->
+            <nav class="hidden lg:flex lg:items-center lg:justify-center lg:space-x-12">
+                <a routerLink="/acerca-de-nosotros" routerLinkActive="active"
+                    class="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none hover:text-opacity-50">
+                    Acerca de Nosotros
+                </a>
+                <a routerLink="/productos" routerLinkActive="active"
+                    class="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none hover:text-opacity-50">
+                    Productos
+                </a>
+                <a routerLink="/servicios" routerLinkActive="active"
+                    class="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none hover:text-opacity-50">
+                    Servicios
+                </a>
+                <a routerLink="/contactanos" routerLinkActive="active"
+                    class="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none hover:text-opacity-50">
+                    Contáctanos
+                </a>
+            </nav>
+        </div>
+
+        <!-- Menú vertical para pantallas pequeñas -->
+        <nav *ngIf="isMenuOpen()" class="px-1 py-8  lg:hidden">
+            <div class="grid gap-y-7 ">
+                <a routerLink="/acerca-de-nosotros" routerLinkActive="active"
+                    class="flex items-center p-3 -m-3 text-base font-medium text-gray-900 transition-all duration-200 rounded-xl hover:bg-white"
+                    (click)="toggleMenu()">
+                    Acerca de Nosotros
+                </a>
+                <a routerLink="/productos" routerLinkActive="active"
+                    class="flex items-center p-3 -m-3 text-base font-medium text-gray-900 transition-all duration-200 rounded-xl hover:bg-white"
+                    (click)="toggleMenu()">
+                    Productos
+                </a>
+                <a routerLink="/servicios" routerLinkActive="active"
+                    class="flex items-center p-3 -m-3 text-base font-medium text-gray-900 transition-all duration-200 rounded-xl hover:bg-white"
+                    (click)="toggleMenu()">
+                    Servicios
+                </a>
+                <a routerLink="/contactanos" routerLinkActive="active"
+                    class="flex items-center p-3 -m-3 text-base font-medium text-gray-900 transition-all duration-200 rounded-xl hover:bg-white"
+                    (click)="toggleMenu()">
+                    Contáctanos
+                </a>
+            </div>
+        </nav>
+    </div>
+</header>
